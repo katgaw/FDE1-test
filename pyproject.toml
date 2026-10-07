@@ -1,0 +1,12 @@
+[project]
+name = "hive-fde-challenge"
+version = "0.1.0"
+description = "The Hive FDE Challenge — set up your machine, and get concrete about the problem"
+requires-python = ">=3.12"
+
+dependencies = [
+    "notebook>=7.4",           # jupyter notebook
+    "ipykernel>=6.29",
+    "python-dotenv>=1.2",      # helpers/config.py
+    "litellm>=1.90",           # the one model call in the environment check
+]
