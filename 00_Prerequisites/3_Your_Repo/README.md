@@ -114,7 +114,7 @@ On GitHub, create a **new, empty** repository.
 
 | Setting | Value |
 | --- | --- |
-| **Name** | Something short you will not regret typing. `Hive1` is fine |
+| **Name** | Something short you will not regret typing. `FDE1` is fine |
 | **Visibility** | Your call. **Private is a perfectly good answer** if work-related material will end up in it |
 | **Add a README** | **Deselect it.** You want a genuinely empty repo |
 | **.gitignore / licence** | Add neither, for the same reason |
@@ -129,8 +129,8 @@ you have to merge around in step 4.
 Copy the SSH address from the green **Code** button, then:
 
 ```bash
-git clone git@github.com:<YOUR_USERNAME>/Hive1.git
-cd Hive1
+git clone git@github.com:<YOUR_USERNAME>/FDE1.git
+cd FDE1
 ```
 
 > `warning: You appear to have cloned an empty repository` means you did it
@@ -144,17 +144,17 @@ cd Hive1
 from it.
 
 ```bash
-git remote add upstream git@github.com:TowerBrook/Hive-Cohort-1-FDE-Training.git
+git remote add upstream git@github.com:AI-Maker-Space/The-Hive-FDE-Challenge.git
 git remote -v
 ```
 
 You should see four lines — two for `origin`, two for `upstream`:
 
 ```
-origin    git@github.com:<YOUR_USERNAME>/Hive1.git (fetch)
-origin    git@github.com:<YOUR_USERNAME>/Hive1.git (push)
-upstream  git@github.com:TowerBrook/Hive-Cohort-1-FDE-Training.git (fetch)
-upstream  git@github.com:TowerBrook/Hive-Cohort-1-FDE-Training.git (push)
+origin    git@github.com:<YOUR_USERNAME>/FDE1.git (fetch)
+origin    git@github.com:<YOUR_USERNAME>/FDE1.git (push)
+upstream  git@github.com:AI-Maker-Space/The-Hive-FDE-Challenge.git (fetch)
+upstream  git@github.com:AI-Maker-Space/The-Hive-FDE-Challenge.git (push)
 ```
 
 ---
@@ -246,8 +246,8 @@ Task 4 makes one real model call, so come back to it after
 Outbound port 22 is blocked. Use HTTPS addresses instead:
 
 ```bash
-git clone https://github.com/<YOUR_USERNAME>/Hive1.git
-git remote add upstream https://github.com/TowerBrook/Hive-Cohort-1-FDE-Training.git
+git clone https://github.com/<YOUR_USERNAME>/FDE1.git
+git remote add upstream https://github.com/AI-Maker-Space/The-Hive-FDE-Challenge.git
 ```
 
 You will be asked for a **personal access token** rather than a password —

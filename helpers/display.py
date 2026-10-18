@@ -82,6 +82,29 @@ def stream_md(stream, *, show_reasoning: bool = True) -> str:
     return answer
 
 
+def stream_lc(prompt, llm, *, show_reasoning: bool = True) -> str:
+    """Stream a LangChain prompt through the chat client, keeping reasoning visible.
+
+    ChatOpenAI streaming drops the reasoning field, so a chain can sit blank while the
+    model thinks. `prompt` is what a prompt chain returns from `build.invoke(...)`.
+    """
+    from helpers.llm_call import chat_stream
+
+    messages = prompt.to_messages() if hasattr(prompt, "to_messages") else prompt
+    payload = []
+    for message in messages:
+        role = getattr(message, "type", "user")
+        role = {"human": "user", "ai": "assistant"}.get(role, role)
+        payload.append({"role": role, "content": getattr(message, "content", message)})
+
+    model = getattr(llm, "model_name", None) or getattr(llm, "model", None)
+    temperature = getattr(llm, "temperature", None)
+    extra = {"model": model} if model else {}
+    if temperature is not None:
+        extra["temperature"] = temperature
+    return stream_md(chat_stream(payload, **extra), show_reasoning=show_reasoning)
+
+
 def stream_chat(stream, *, show_reasoning: bool = True) -> dict:
     """Like `stream_md`, but also assembles streamed tool-call fragments.
 

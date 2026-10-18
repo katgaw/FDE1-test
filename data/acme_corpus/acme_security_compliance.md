@@ -1,0 +1,55 @@
+# ACME Analytics Corp — Security & Compliance
+
+ACME Analytics Corp, founded in 2014 by Dr. Priya Ramanathan and headquartered in Chicago, maintains a comprehensive security and compliance program governing all client engagements. With 1,180 employees across offices in London, Singapore, and São Paulo, ACME applies consistent controls to protect client data throughout its lifecycle. This document defines the policies, standards, and certifications that underpin our commitment to data protection across the ACME Retrieval Platform (`ARP`) and the Generative AI Practice (`GAIP`).
+
+## Data Encryption at Rest and in Transit
+
+All client data managed by ACME is encrypted at rest using AES-256 with keys held in a managed key-management service. Encryption keys rotate on a 90-day cycle, and key access is logged and audited. Data in transit is protected with TLS 1.2 or higher across all internal and external network paths, including connections to the `ARP`. Database volumes, object storage, and backup snapshots are encrypted by default. Field-level encryption is applied to sensitive personal identifiers. ACME prohibits the storage of unencrypted client data on any endpoint device, and full-disk encryption is enforced on all employee laptops through centralized device management.
+
+## Access Control and Least-Privilege RBAC
+
+ACME enforces role-based access control (`RBAC`) grounded in the principle of least privilege. Each employee receives only the permissions required for their role, and access to client environments is granted on a per-engagement, time-bound basis. Privileged access requires multi-factor authentication and is reviewed quarterly. Access grants are logged in an immutable audit trail. Joiner-mover-leaver workflows ensure entitlements are provisioned at onboarding, adjusted when roles change, and revoked within 24 hours of departure. Production data access is segregated from development access, and standing administrative privileges are minimized in favor of just-in-time elevation requiring documented justification and approval from an engagement lead.
+
+## Client Data Segregation and Tenancy
+
+ACME maintains strict logical separation between client datasets within the `ARP`. Each client operates within a dedicated tenant boundary enforced through namespace isolation, separate encryption-key scopes, and tenant-aware access policies. No client data is commingled in shared indices or vector stores; retrieval operations are scoped to a single tenant per query. Cross-tenant access is technically prohibited and monitored for anomalies. For engagements requiring heightened isolation, ACME can provision fully dedicated infrastructure. Tenant boundaries are validated through automated tests during each deployment, ensuring that segmentation controls remain effective as the platform evolves and new client environments are onboarded.
+
+## The Data Processing Agreement (DPA)
+
+Every client engagement is governed by a Data Processing Agreement (`DPA`) that defines ACME's responsibilities as a data processor. The `DPA` specifies the categories of personal data processed, the purposes of processing, retention periods, and the security measures ACME commits to maintaining. It establishes obligations for breach notification, sub-processor disclosure, and assistance with data-subject requests. The `DPA` incorporates standard contractual clauses where cross-border transfers occur, supporting compliance with applicable data-protection regulations. Clients retain full ownership of their data, and the `DPA` affirms that ACME processes data solely on documented client instructions. The agreement is reviewed by ACME's legal and compliance teams before any engagement begins.
+
+## Data Retention and Deletion
+
+ACME retains client data only for the duration required to deliver contracted services and to satisfy legal obligations, as specified in each `DPA`. Default retention periods are defined per data category, and data exceeding its retention window is purged through automated lifecycle policies. Upon engagement termination, ACME deletes or returns all client data within 30 days, including copies held in backups, vector indices, and derived artifacts within the `ARP`. Deletion is performed using cryptographic erasure and verified through completion attestations. Clients may request data deletion at any point during an engagement. Audit logs of deletion activities are retained to demonstrate compliance with retention commitments.
+
+## SOC 2 Type II Program Status
+
+ACME is actively pursuing `SOC 2 Type II` attestation covering the Security, Availability, and Confidentiality trust-service criteria. The control environment has been designed and implemented, and ACME is currently in the observation period during which an independent auditor evaluates operating effectiveness over time. Control owners maintain evidence repositories covering access reviews, change management, vulnerability remediation, and incident handling. Internal readiness assessments are conducted quarterly to identify and close gaps ahead of the formal audit. ACME expects to complete its first `SOC 2 Type II` report within the current fiscal year and will make the report available to clients under a non-disclosure agreement upon request.
+
+## ISO 27001 Certification Roadmap
+
+In parallel with `SOC 2 Type II`, ACME is executing a roadmap toward `ISO 27001` certification. The program centers on an Information Security Management System (ISMS) with a defined scope covering the `ARP`, `GAIP`, and supporting corporate systems. ACME has completed risk assessment and Statement of Applicability documentation, mapping selected Annex A controls to identified risks. Internal audits and a management review precede engagement of an accredited certification body for the Stage 1 and Stage 2 audits. The roadmap emphasizes shared control evidence with the `SOC 2` program to reduce duplication. Certification is targeted for completion following the `SOC 2 Type II` attestation, reinforcing ACME's layered assurance posture.
+
+## Incident Response and Breach Notification
+
+ACME maintains a documented incident-response plan covering detection, triage, containment, eradication, recovery, and post-incident review. Security events are monitored continuously, and a designated incident-response team is on call to coordinate the response. Incidents are classified by severity, and predefined escalation paths govern internal and client communication. Where a confirmed data breach affects client data, ACME notifies the affected client without undue delay and within the timeframe specified in the applicable `DPA`, typically within 72 hours of confirmation. Notifications include the nature of the breach, data categories involved, and remediation steps. Every significant incident concludes with a root-cause analysis and tracked corrective actions.
+
+## Business Continuity Plan (BCP-7) and Disaster Recovery
+
+ACME's Business Continuity Plan, currently at revision `BCP-7`, defines the procedures for sustaining operations during disruptions. The plan establishes recovery-time and recovery-point objectives for critical systems, including the `ARP`. Client data is replicated across geographically separate regions, and encrypted backups are tested through scheduled restoration exercises. `BCP-7` assigns continuity roles, defines communication protocols, and documents failover procedures for core platform services. Disaster-recovery drills are conducted at least annually, and results feed into plan revisions. The plan also addresses workforce continuity across ACME's Chicago, London, Singapore, and São Paulo offices, ensuring engagements can continue if any single location becomes unavailable.
+
+## Vendor and Sub-Processor Management
+
+ACME engages third-party vendors and sub-processors only after a security-due-diligence review covering their certifications, data-handling practices, and contractual safeguards. All sub-processors with access to client data are bound by agreements imposing protection obligations no less stringent than those in ACME's own `DPA`. A current sub-processor inventory is maintained, and clients are notified of material changes in accordance with their `DPA`. Vendor risk is reassessed periodically, with higher-risk providers reviewed more frequently. ACME monitors sub-processor compliance through attestation reviews and, where appropriate, contractual audit rights. Vendors failing to meet ACME's standards are remediated or offboarded with corresponding data-deletion confirmation.
+
+## Employee Security Training and Background Checks
+
+All ACME employees complete background screening, where legally permitted, prior to gaining access to client environments. Every employee undergoes mandatory security-awareness training at onboarding and annually thereafter, covering phishing, data handling, secure development, and incident reporting. Engagement teams working within `GAIP` receive additional training on responsible AI and the secure treatment of prompts and outputs. Training completion is tracked, and non-completion triggers access restrictions. ACME conducts periodic phishing simulations and reinforces a culture in which any employee can report a suspected security concern without fear of reprisal. Confidentiality obligations are embedded in employment agreements and reaffirmed throughout the employee lifecycle.
+
+## Secure Handling of Generative-AI Prompts and Outputs in GAIP
+
+Within `GAIP` engagements, ACME applies specific controls to the prompts and outputs flowing through generative-AI systems. Client data included in prompts is scoped to the relevant tenant and is never used to train external foundation models. ACME configures provider integrations to disable data retention for model training and logs prompt-and-response activity within the client's tenant boundary in the `ARP`. Sensitive inputs are subject to redaction and access controls, and outputs are reviewed for accuracy and the inadvertent disclosure of confidential information. Guardrails detect prompt-injection attempts and restrict model access to authorized retrieval sources, ensuring generative workflows uphold the same confidentiality standards as the rest of the platform.
+
+## Government Clients and Required Certifications
+
+ACME currently serves no government or public-sector clients. Doing so would require certifications and accreditations beyond ACME's present compliance posture, such as FedRAMP authorization in the United States and equivalent national frameworks in other jurisdictions. These programs impose additional requirements around personnel clearances, data residency, continuous monitoring, and dedicated government-cloud environments. ACME has made a deliberate decision to first complete its `SOC 2 Type II` attestation and `ISO 27001` certification, establishing a mature control baseline before evaluating any expansion into public-sector work. Should ACME pursue government engagements in the future, it would undertake a dedicated certification program with corresponding investment in compliant infrastructure and processes.

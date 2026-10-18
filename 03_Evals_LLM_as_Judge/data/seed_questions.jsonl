@@ -1,0 +1,8 @@
+{"id": "f01", "type": "factual", "category": "penalties", "question": "What is the maximum administrative fine for engaging in a prohibited AI practice under the EU AI Act?", "reference": "Up to €35 million or 7% of total worldwide annual turnover, whichever is higher."}
+{"id": "f02", "type": "factual", "category": "timeline", "question": "When do the EU AI Act's prohibitions on certain AI practices take effect?", "reference": "2 February 2025."}
+{"id": "f03", "type": "factual", "category": "governance", "question": "Which EU body supervises general-purpose AI models under the Act?", "reference": "The European AI Office."}
+{"id": "f04", "type": "factual", "category": "scope", "question": "Does the EU AI Act apply to AI systems used exclusively for military or defence purposes?", "reference": "No — it does not apply to AI used exclusively for military, defence, or national security."}
+{"id": "e01", "type": "explanatory", "category": "risk", "question": "Explain the EU AI Act's risk-based approach in your own words.", "reference": null}
+{"id": "e02", "type": "explanatory", "category": "transparency", "question": "Why does the Act require AI chatbots and deepfakes to be disclosed or labelled?", "reference": null}
+{"id": "a01", "type": "advisory", "category": "compliance", "question": "A client wants to deploy an AI tool that screens job applicants in the EU. What should they prioritise to comply with the Act?", "reference": null}
+{"id": "a02", "type": "advisory", "category": "strategy", "question": "Should a startup training a general-purpose AI model be concerned about the systemic-risk obligations?", "reference": null}
